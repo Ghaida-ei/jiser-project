@@ -1,0 +1,134 @@
+*{
+    font-family: 'Tajawal';
+}
+   
+   
+   /* lncrease & decrease*/
+   .wrapper {
+    background: #33087771;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    width:44px;
+}
+
+.wrapper span {
+ 
+  
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+}
+
+.wrapper span.num {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    padding:  0px;
+}
+
+
+   /* tabal*/
+   #ta {
+      position: absolute;
+      z-index: 2;
+      left: 42%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      background: #ffffff;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(32, 32, 32, .3);
+   }
+
+   .t .d {
+      padding: 15px 20px;
+   }
+   .d{
+      direction: rtl;
+   }
+
+   .t {
+      background: #320877;
+      color: fafafa;
+      color: floralwhite;
+   }
+
+   .r:nth-child(odd) {
+      background-color: #2d11623d;
+
+   }
+
+   /* sheck box*/
+   .i {
+      display: inline-block;
+      border: 1px solid #0004;
+      border-radius: 100em;
+      font-size: 1rem;
+      position: relative;
+      padding: 0.5em 1em 0.5em 2em;
+      overflow: hidden;
+      margin: 0 5px;
+      appearance: none;
+   }
+
+   /* sheck box*/
+   .i::before {
+      content: "";
+      width: 0.75em;
+      display: inline-block;
+      aspect-ratio: 1;
+      background:
+         linear-gradient(currentcolor 0 0),
+         linear-gradient(currentcolor 0 0);
+      background-color: var(--color);
+      background-position: 50% 50%, 50% 50%, 50% 50%;
+      background-size: 0 0, 0 0;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 1.125em;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: width 0.25s, background-size 0.5s;
+   }
+
+   /* sheck box*/
+   .i::after {
+      position: relative;
+      content: attr(value);
+      white-space: pre;
+      line-height: 1;
+   }
+
+   /* sheck box*/
+   .i:checked::before {
+      width: 200%;
+      background-position: 50% 50%, 50% 50%, 50% 50%;
+      background-size: 1em 0.125em, 0.125em 1em;
+   }
+
+   input {
+      font-size: 1ch;
+   }
+
+   #buttonnn {
+      background-color: #2D1162;  /* Background color */
+      color: white;               /* Text color */
+      padding: 10px 20px;         /* Padding around text */
+      border: none;               /* Remove border */
+      border-radius: 4px;         /* Rounded corners */
+      cursor: pointer;            /* Cursor on hover */
+      font-size: 16px;            /* Font size */
+      transition: background-color 0.3s ease; /* Smooth transition */
+     margin-top: 640px;
+     margin-right: 120px;
+     width:11%;
+  }
+  
+  #buttonnn:hover{
+      background-color: #4211a4;
+  }
+

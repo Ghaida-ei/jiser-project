@@ -1,0 +1,315 @@
+#mytasksContent{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+@keyframes move {
+    100% {
+        transform: translateY(-100vh);
+    }
+}
+
+
+
+/* Style the header */
+.header {
+    background-color: #23034d;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    padding-bottom: 80px;
+    margin-right: 95px;
+    margin-top: 60px;
+ 
+    
+}
+
+
+#myInput {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    font-size: 16px;
+    float: right;
+    margin-top: 22px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+    margin-top: 22px;
+    width: 20%;
+    height: 30px;
+    background: #d9d9d9;
+    color: #555;
+    float: right;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+    padding-top: 10px;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+#myUL>li {
+    text-align: center;
+    clear: both;
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: #eee;
+    color: #888;
+    font-size: 18px;
+    transition: 0.2s;
+    margin-top: 12px;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    max-width: 600px;
+    top: 50px;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+#myUL li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+#myUL li:hover {
+    background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+#myUL li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+#myUL li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    right: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 19px;
+}
+
+/* Style the close button */
+.close {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 12px 16px;
+}
+
+.close:hover {
+    background-color: #6335b2;
+    color: white;
+}
+
+
+.chart-div {
+
+    width: 680px;
+    height: 600px;
+    margin-right:100px;
+}
+
+#C {
+    position: absolute;
+    top: 8px;
+    left: 40px;
+    /* ====== C Button Image ======= */
+    background-image: url('Cal.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
+    /*-------------------------------*/
+    border: none;
+    height: 90px;
+    width: 90px;
+   
+}
+
+
+
+/*-----------------------*/
+aside {
+    position: absolute;
+    top: 85px;
+    left: 50px;
+    
+}
+
+.container {
+    margin-top: 28px;
+    z-index: 12;
+    margin-bottom: 5px;
+    width: 350px;
+    height: 490px;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #2D1162;
+    /* background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5); */
+}
+
+.container input[type="text"] {
+    width: 100%;
+    height: 70px;
+    margin: 0 3px;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    padding-right: 10px;
+    pointer-events: none;
+    background: transparent;
+}
+
+.container input[type="button"] {
+    height: 55px;
+    color: #fff;
+    width: calc(100% / 4 - 5px);
+    background: transparent;
+    border-radius: 12px;
+    margin-top: 15px;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container input[type="button"]:hover {
+    background: #6335b2
+}
+
+/*-----------------------*/
+.calendar-container {
+    background: #b0a4ba;
+    margin-bottom: 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    margin-right: 20px;
+}
+
+.calendar-container header {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+header .calendar-navigation {
+    display: flex;
+}
+
+header .calendar-navigation span {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    user-select: none;
+    color: #aeabab;
+    font-size: 1.9rem;
+}
+
+.calendar-navigation span:last-child {
+    margin-right: -10px;
+}
+
+header .calendar-navigation span:hover {
+    background: #f2f2f2;
+}
+
+header .calendar-current-date {
+    font-weight: 500;
+    font-size: 1.45rem;
+}
+
+.calendar-body {
+    padding: 20px;
+}
+
+.calendar-body ul {
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    text-align: center;
+}
+
+.calendar-body .calendar-dates {
+    margin-bottom: 20px;
+}
+
+.calendar-body li {
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+    color: #414141;
+}
+
+.calendar-body .calendar-weekdays li {
+    cursor: default;
+    font-weight: 500;
+}
+
+.calendar-body .calendar-dates li {
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.calendar-dates li.inactive {
+    color: #370476;
+}
+
+.calendar-dates li.active {
+    color: #fff;
+}
+
+.calendar-dates li::before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar-dates li.active::before {
+    background: #6332c5;
+}
+
+.calendar-dates li:not(.active):hover::before {
+    background: #e4e1e1;
+}

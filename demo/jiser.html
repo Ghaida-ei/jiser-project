@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html  dir="rtl">
+
+<head>
+  <title>جسر</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet"></link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" type="image/png" href="icon.png">
+</head>
+  
+<style>
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #2D1162;
+  height: 130px;
+  margin: 0; 
+  padding: 0;
+}
+
+/* Slideshow  */
+.slideshow-container {
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden; 
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#background {
+  background-color: black;
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  opacity: 0.5;
+
+}
+
+.text {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+/* Animated text */
+.typewriter h1 {
+  position: absolute;
+  color: #fffafa;
+  font-size: 48PX;
+  overflow: hidden;
+  white-space: nowrap;
+  animation:
+    typing 4.5s steps(30, end),
+    blink-caret .10s step-end infinite;
+}
+
+#img1 {
+  margin-top: 240px;
+  margin-right: 320px;
+  font-family: 'Tajawal';
+  
+ 
+
+}
+
+#img2 {
+  margin-top: 240px;
+  margin-right: 200px;
+  font-family: 'Tajawal';
+  
+}
+
+#img3 {
+  margin-top: 240px;
+  margin-right: 300px;
+  font-family: 'Tajawal';
+  
+}
+
+
+.container img {
+  float: left;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  align-items: left;
+  justify-content: space-around;
+  clear: left;
+}
+
+* {
+  font-family: 'Tajawal';
+}
+
+
+#About{
+  font-family: 'Tajawal';
+  font-size:30px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color:#2D1162;
+  text-shadow: 0 0 3px #773988, 0 0 5px #c5c5ce;
+}
+
+
+
+
+
+nav{
+  background-image: url('8340.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100% ;
+  background-attachment:fixed; 
+}
+
+
+  
+
+.column {
+  float: left;
+  width: 25%; 
+  margin-bottom: 25px; 
+ 
+  padding: 23px; 
+  box-sizing: border-box; 
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.textimg {
+
+  color:white;
+  text-align: center;
+  font-size: 18px
+  
+ 
+
+}
+
+.sec {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%; /* Set border-radius to 50% for a circular shape */
+  box-shadow: 9px 9px 9px rgb(99, 36, 113);
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+section{
+  background-image: url('3296905.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100% ;
+}
+
+#heading{
+  font-size: 35px; 
+  color:white;
+  text-align: center;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+ 
+}
+
+#pheading{
+ 
+  font-size:23px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color:white;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+.more{
+  color: white; 
+  text-align: center;
+  background-color:black;
+  opacity: 70%;
+  background-size: auto; 
+   padding: 10px; 
+  border-radius: 12px;
+}
+
+/* part4 */
+
+
+#slider {
+    position: relative;
+    width: 48%;
+    height: 28vw;
+    margin: 80px auto;
+    transform-style: preserve-3d;
+    font-family: "Helvetica Neue", sans-serif;
+    perspective: 1400px;
+    text-align: center; 
+}
+
+input[type="radio"] {
+    position: relative;
+    top: 108%;
+    width: 18px;
+    height: 18px;
+    margin: 15px 4px; /* Adjust the margin as needed */
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+input[type="radio"]:nth-child(5) {
+    margin-right: 0px;
+}
+
+input[type="radio"]:checked {
+    opacity: 1;
+}
+
+        #slider label,
+        #slider label img {
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 3px;
+            color: white;
+            font-size: 70px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 400ms ease;
+        }
+
+        /* Active slide */
+        #s1:checked~#slide1,
+        #s2:checked~#slide2,
+        #s3:checked~#slide3,
+        #s4:checked~#slide4,
+        #s5:checked~#slide5 {
+            transform: translate3d(0%, 0, 0px);
+            box-shadow: 0 13px 26px rgba(0, 0, 0, 0.3), 0 12px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Next slide */
+        #s1:checked~#slide2,
+        #s2:checked~#slide3,
+        #s3:checked~#slide4,
+        #s4:checked~#slide5,
+        #s5:checked~#slide1 {
+            transform: translate3d(20%, 0, -100px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Previous Slide */
+        #s1:checked~#slide5,
+        #s2:checked~#slide1,
+        #s3:checked~#slide2,
+        #s4:checked~#slide3,
+        #s5:checked~#slide4 {
+            transform: translate3d(-20%, 0, -100px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Next to Next Slide */
+        #s1:checked~#slide3,
+        #s2:checked~#slide4,
+        #s3:checked~#slide5,
+        #s4:checked~#slide1,
+        #s5:checked~#slide2 {
+            transform: translate3d(40%, 0, -250px);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Previous to Previous Slide */
+        #s1:checked~#slide4,
+        #s2:checked~#slide5,
+        #s3:checked~#slide1,
+        #s4:checked~#slide2,
+        #s5:checked~#slide3 {
+            transform: translate3d(-40%, 0, -250px);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+
+        .footer {
+         background-color: #2D1162;
+  padding: 0.2px;
+  color: white;
+
+}
+
+.footer *{
+  display: inline-block;
+  margin: 5px 20px;
+}
+#Logo{
+  margin: 0;
+  padding: 0;
+  padding-top:10px;
+}
+
+
+ul list{ 
+ position: absolute;
+ width: 100%;
+ list-style-type: none; 
+ margin: 0px;
+ 
+ 
+
+ 
+}
+
+li {
+ float: right;
+ margin: 45px;
+ list-style-type: none;
+font-size:20px;
+
+}
+
+li a  {
+ font-size: larger;
+ display: block;
+ color: white;
+ text-align: center;
+ text-decoration: none;
+ list-style-type: none;
+ padding-left: 30px;
+
+}
+
+ul{
+  margin: 0; 
+  padding: 0;
+}
+
+#list  a:hover {
+  background-color:#10022a;
+  padding: 3.5px; 
+
+}
+
+#login a:hover{
+  background-color:#10022a;
+  padding: 3.5px; 
+}
+
+.fa-users, .fa-hand-holding, .fa-headset, .fa-circle-user {
+    padding-right: 10px;
+}
+
+
+
+
+
+</style>
+</head>
+
+<body>
+  
+ <!-- part 1 -->
+ <!-- header -->
+  <header>   
+   
+    <ul id="imglogo">
+      <li id="Logo"><a href=""> <img src="Logo.png" style="width:210px;" height="100px"></li></a>
+    </ul>
+
+    <ul id="list">
+        <li id=""><a href="#NN1"> من نحن<i class="fa-solid fa-users"></i></a></li>
+        <li id=""><a href="#NN2"> خدمتنا<i class="fa-solid fa-hand-holding"></i></a></li>
+        <li id=""><a href="#N3">عملائنا <i class="fa-regular fa-comment"></i></a></li>
+        <li id=""><a href="#NN4">تواصلنا <i class="fa-solid fa-headset"></i></a></li>
+      </ul> 
+
+      <ul id="login">
+        <li><a id="log" href="login.html">تسجيل الدخول<i class="fa-solid fa-circle-user"></i></a></li>
+      </ul>
+  </header>
+ 
+ <!-- Slideshow -->
+ <div class="slideshow-container">
+
+  <div class="mySlides">
+    <div id="background" onclick="typeWriter()"></div>
+    <div class="typewriter">
+      <h1 id="img1">ارتقِ بعملك , جسر جمع لك الكفاءة و التميز </h1>
+    </div>
+    <img src="8846.jpeg">
+  </div>
+
+  <div class="mySlides">
+    <div id="background" onclick="typeWriter()"></div>
+
+
+    <div class="typewriter">
+      <h1 id="img2">  عملك بأكمله في منصة واحدة لتحقيق تحول رقمي حقيقي</h1>
+    </div>
+
+    <img src="3450.jpg" >
+
+  </div>
+
+  <div class="mySlides">
+    <div id="background" onclick="typeWriter()"></div>
+
+    <div class="typewriter">
+      <h1 id="img3">نساعدك لتبسيط أعمالك لزيادة جودة انتاجك</h1>
+    </div>
+
+    <img src="1326.jpeg">
+
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+ 
+
+ <script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+
+  }
+
+ </script>
+
+ <!-- part 2 -->
+
+ <nav>
+  <br id="NN1"><br><br><br><br><br><br><br><br><br><br><br >
+  <p id="About"><b >حيّاكم </b>في <b >جسر</b> شريكك الموثوق لإدارة امور منشأتك
+    <br>
+    نتفهم التحديات التي يواجها أصحاب المنشأت في إدارة مهامهم 
+    <br> <b >و مهمتنا </b>
+   تمكين أصحاب المنشأت من سد فجوة أعمالهم <b>بجسر</b> لتصبح كل مهمة مبسطة 
+   </p>
+   <hr style="height: 5px; border:inherit; background-color: #9678ba; width:60% ;  text-align: center;" />
+   <br><br><br><br><br><br><br><br><br><br id="NN2"><br>
+ </nav>
+ 
+  
+
+
+   <!-- part 3-->
+  
+
+   <section class="figure">
+    <div class="row">
+      <br><br>
+      <h1 id="heading">ما يميزنا</h1>
+      
+      <p id="pheading">النظام الأساسي الموحد يجمع جميع مهام منشأتك تحت سقف واحد</p>
+
+      <div  class="column">
+        <figure>
+          <!-- img -->
+          <img class="sec" src="bills.png" />
+          <!-- H.img -->
+          <figcaption class="textimg"><b>إدارة الفواتير</b></figcaption>
+          <br>
+          <!-- figcaption -->
+          <figcaption class="more" onmouseover="mouseOverFirst(this)" onmouseout="mouseOutFirst(this)">اعرف اكثر </figcaption>
+        </figure>
+        <script>
+          function mouseOverFirst(element) {
+            element.style.color = "white";
+            element.innerHTML = "يمكن لصاحب المنشأة إدارة جميع الفواتير في صفحة واحدة لتسهيل العمليات الإدارية والسعي إلى التعامل بكفاءة لإدارة عمليات  الفواتير";
+          }
+      
+          function mouseOutFirst(element) {
+            element.style.color = "white";
+            element.innerHTML = "اعرف اكثر";
+          }
+        </script>
+      </div>
+      
+      <div class="column">
+        <figure>
+          <!-- img -->
+          <img class="sec" src="inventory.png" />
+          <!-- H.img -->
+          <figcaption class="textimg"><b>إدارة المخزون</b></figcaption>
+          <br>
+          <!-- figcaption -->
+          <figcaption class="more" onmouseover="mouseOverSecond(this)" onmouseout="mouseOutSecond(this)">اعرف اكثر  </figcaption>
+        </figure>
+        <script>
+          function mouseOverSecond(element) {
+            element.style.color = "white";
+            element.innerHTML = "توفر خدمة إدارة المخزون لدينا إلى تحسين عمليات المخزون الخاصة بمنشاتك. فيمكنك  تتبع مستويات المخزون وإدارته وتحليله بشكلاً منظم  "
+          }
+
+          function mouseOutSecond(element) {
+            element.style.color = "white";
+            element.innerHTML = "اعرف اكثر";
+          }
+        </script>
+      </div>
+
+      <div class="column">
+        <figure>
+          <!-- img -->
+          <img class="sec" src="employees.png" />
+          <!-- H.img -->
+          <figcaption class="textimg"><b>إدارة الموظفين</b></figcaption>
+          <br>
+          <!-- figcaption -->
+          <figcaption class="more" onmouseover="mouseOverThird(this)" onmouseout="mouseOutThird(this)">اعرف اكثر  </figcaption>
+        </figure>
+        <script>
+          function mouseOverThird(element) {
+            element.style.color = "white";
+            element.innerHTML = "    يمكنك تسهيل التواصل مع الموظفين وتوضيح الأدوار الوظيفية وإدارة المعلومات الشخصية بشكل آمن من خلال خدمة إدارة الموظفين الشاملة لدينا "
+          
+          }
+          function mouseOutThird(element) {
+            element.style.color = "white";
+            element.innerHTML = "اعرف اكثر";
+          }
+        </script>
+      </div>
+
+      <div class="column">
+        <figure>
+          <!-- img -->
+          <img class="sec" src="Tasks.png" />
+          <!-- H.img -->
+          <figcaption class="textimg"><b>إدارة مهام  </b></figcaption>
+          <br>
+          <!-- figcaption -->
+          <figcaption class="more" onmouseover="mouseOverFourthly(this)" onmouseout="mouseOutFourthly(this)">اعرف اكثر</figcaption>
+        </figure>
+        <script>
+          function mouseOverFourthly(element) {
+            element.style.color = "white";
+            element.innerHTML = "توفر خدمة إدارة المهام  تعزيز الإنتاجية والكفاءة  بتنظيم المهام حسب الأولوية  مما يضمن الوضوح والتركيز على الأنشطة الأكثر أهمية.مما يساعده في تنظيم سير العمل     ";
+          }
+      
+          function mouseOutFourthly(element) {
+            element.style.color = "white";
+            element.innerHTML = "اعرف اكثر";
+          }
+        </script>
+      </div>
+    </div>
+  </section>
+  <br><br><br><br><br><br><br><br><br>
+
+   <!-- part 4 -->
+
+  
+   <p id="About"><b id="N3">شاركونا قصص نجاحكم مع جسر </b></p>
+
+   <div id="slider">
+    <input type="radio" name="slider" id="s1" checked />
+    <input type="radio" name="slider" id="s2" />
+    <input type="radio" name="slider" id="s3" />
+    <input type="radio" name="slider" id="s4" />
+    <input type="radio" name="slider" id="s5" />
+    <label for="s1" id="slide1">
+        <img src="comment4.jpeg" alt="" />
+    </label>
+    <label for="s2" id="slide2">
+        <img src="comment5.jpeg" alt="" />
+    </label>
+    <label for="s3" id="slide3">
+        <img src="comment3.jpeg" alt="" />
+    </label>
+    <label for="s4" id="slide4">
+        <img src="comment2.jpeg" alt="" />
+    </label>
+    <label for="s5" id="slide5">
+        <img src="comment1.jpeg" alt="" />
+    </label>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- part 5 -->
+<footer>
+  <div class="footer">
+    <div class="footer-right">
+     
+      <br>
+      <img src="Logo.png" style="width:195px;" height="95px">
+    </div>
+
+    <div class="footer-center">
+      <h2>اتصل بنا</h2>
+      <br>
+      <p>0112476907<i class="fa-solid fa-phone" style="color: #ffffff;"></i></p>
+     
+    </div>
+
+    <div class="footer-left">
+      <h2>حسابتنا</h2>
+      <br>
+      <p>Jiser@jis.edu.sa<i class="fa-solid fa-envelope"></i></p>
+      <p>Jiser_Twitter<i class="fab fa-twitter" style="color: #ffffff;"></i></p>
+      <p id="NN4">Jiser_Instagram <i class="fa-brands fa-instagram"></i></p>
+     
+    </div>
+
+  </div>
+</footer>
+
+
+
+</body>
+</html>

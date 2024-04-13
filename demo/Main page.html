@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <title>الصفحة الرئيسية</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal&display=swap" rel="stylesheet">
+    </link>
+    <link rel="icon" type="image/png" href="icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chart.js.js"></script>
+    <script type="text/javascript" src="alert message.js"></script>
+
+
+    <link rel="stylesheet" href="MyData__style.css" type="text/css" />
+    <link rel="stylesheet" href="Yourguide _page _style.css" type="text/css" />
+    <link rel="stylesheet" href="Employees_style.css" type="text/css" />
+    <link rel="stylesheet" href="bills_style.css" type="text/css">
+    <link rel="stylesheet" href="Warehouse_style.css" type="text/css" />
+    <link rel="stylesheet" href="mytasks_style.css" type="text/css" />
+
+
+    <style>
+        /* Style for the navigation bar */
+        .navbar {
+            width: 200px;
+            background-color: #2D1162;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+        }
+
+        .navbar a {
+            display: block;
+            padding: 10px 10px 10px 30px;
+            text-decoration: none;
+            color: white;
+            border-bottom: 5px solid #210d46;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 17px;
+            font-family: 'Tajawal';
+
+
+        }
+
+        .navbar a:first-child {
+            margin-top: 15px;
+        }
+
+        .navbar a:hover {
+            background-color: #210d46;
+        }
+
+        /* Style for the content area */
+        .content {
+            margin-right: 220px;
+            padding: 20px;
+        }
+
+        /* Add margin to the top for the image */
+        .navbar img a:hover {
+            background-color:#2D1162;
+            margin-bottom: 7px;
+            margin-top: -40px;
+          
+        }
+
+        .fa-file-lines,
+        .fa-file-invoice-dollar,
+        .fa-box-archive,
+        .fa-address-book,
+        .fa-magnifying-glass,
+        .fa-list-check {
+
+            padding-left: 15px;
+        }
+    </style>
+    <title>جسر</title>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <br>
+        <a href="jiser.html"> <img src="Logo.png" style="height: 120px ;" width="210px"></a> <!-- Image at the top -->
+        <br><br>
+        <a href="#" onclick="showContent('mytasks')"> <i class="fa-solid fa-list-check"></i> إدارة مهامي </a>
+        <br>
+        <a href="#" onclick="showContent('mydata')"><i class="fa-solid fa-file-lines"></i>بياناتي</a>
+        <br>
+        <a href="#" onclick="showContent('bills')"><i class="fa-solid fa-file-invoice-dollar"></i>إدارة الفواتير</a>
+        <br>
+        <a href="#" onclick="showContent('Warehouse')"><i class="fa-solid fa-box-archive"></i>إدارة المستودع</a>
+        <br>
+        <a href="#" onclick="showContent('Employees')"><i class="fa-solid fa-address-book"></i> الموظفين</a>
+        <br>
+        <a href="#" onclick="showContent('Yourguide')"><i class="fa-solid fa-magnifying-glass"></i>دليلك </a>
+        <br>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content" id="content">
+
+        <!-- mytasks Content -->
+        <div id="mytasksContent" style="display: none;">
+
+            <main>
+                <div class="task-div">
+                    <div id="myDIV" class="header">
+                        <h2 style="margin:5px">إدارة مهام</h2>
+                        <input type="text" id="myInput" placeholder="Title...">
+                        <span onclick="newElement()" class="addBtn">إضافة</span>
+                        <ul id="myUL" style="z-index: 99;">
+                            <li class="checked">تجديد الرخصة</li>
+                            <li>تحديث بيانات المنشآة</li>
+                            <li>رواتب الموظفين</li>
+                            <li>إدارة المخزون</li>
+                            <li>تجديد السجل التجاري</li>
+                        </ul>
+                    </div>
+                    <script>
+                        // Create a "close" button and append it to each list item
+                        var myNodelist = document.getElementsByTagName("LI");
+                        var i;
+                        for (i = 0; i < myNodelist.length; i++) {
+                            var span = document.createElement("SPAN");
+                            var txt = document.createTextNode("\u00D7");
+                            span.className = "close";
+                            span.appendChild(txt);
+                            myNodelist[i].appendChild(span);
+                        }
+
+                        // Click on a close button to hide the current list item
+                        var close = document.getElementsByClassName("close");
+                        var i;
+                        for (i = 0; i < close.length; i++) {
+                            close[i].onclick = function () {
+                                var div = this.parentElement;
+                                div.style.display = "none";
+                            }
+                        }
+
+                        // Add a "checked" symbol when clicking on a list item
+                        var list = document.querySelector('ul');
+                        list.addEventListener('click', function (ev) {
+                            if (ev.target.tagName === 'LI') {
+                                ev.target.classList.toggle('checked');
+                            }
+                        }, false);
+
+                        // Create a new list item when clicking on the "Add" button
+                        function newElement() {
+                            var li = document.createElement("li");
+                            var inputValue = document.getElementById("myInput").value;
+                            var t = document.createTextNode(inputValue);
+                            li.appendChild(t);
+                            if (inputValue === '') {
+                                alert("You must write something!");
+                            } else {
+                                document.getElementById("myUL").appendChild(li);
+                            }
+                            document.getElementById("myInput").value = "";
+
+                            var span = document.createElement("SPAN");
+                            var txt = document.createTextNode("\u00D7");
+                            span.className = "close";
+                            span.appendChild(txt);
+                            li.appendChild(span);
+
+                            for (i = 0; i < close.length; i++) {
+                                close[i].onclick = function () {
+                                    var div = this.parentElement;
+                                    div.style.display = "none";
+                                }
+                            }
+                        }
+                    </script>
+                </div><br><br>
+                <div class="chart-div">
+                    <canvas id="myChart"></canvas>
+
+                    <script>
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: [
+                                    '2022', '2023', '2024'
+                                ],
+                                datasets: [
+                                    {
+                                        label: 'عدد العمليات',
+                                        data: [
+                                            50, 100, 150
+                                        ],
+                                        backgroundColor: 'purple',
+                                        borderColor: 'purple',
+                                        borderWidth: 1
+                                    }, {
+                                        label: 'عدد المنشأت',
+                                        data: [
+                                            80, 120, 160
+                                        ],
+                                        backgroundColor: 'rgba(255, 0, 255, 0.5)',
+                                        borderColor: 'rgba(255, 0, 255, 0.5)',
+                                        borderWidth: 1
+                                    }, {
+                                        label: 'عدد المستفيدين',
+                                        data: [
+                                            100, 150, 200
+                                        ],
+                                        backgroundColor: 'rgba(0, 255, 255, 0.5)',
+                                        borderColor: 'rgba(0, 255, 255, 0.5)',
+                                        borderWidth: 1
+                                    }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [
+                                        {
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+
+            </main>
+            <input id="C" type="button" value="">
+            <aside>
+                <div id="calculator" style="display: none;">
+                    <div class="container">
+                        <form action="#" name="forms">
+                            <input type="text" name="answer">
+                            <div class="buttons">
+                                <input type="button" value="AC" onclick="forms.answer.value = ''">
+                                <input type="button" value="DEL"
+                                    onclick="forms.answer.value = forms.answer.value.substr(0 , forms.answer.value.length -1)">
+                                <input type="button" value="%" onclick="forms.answer.value += '%'">
+                                <input type="button" value="/" onclick="forms.answer.value += '/'">
+                            </div>
+                            <div class="buttons">
+                                <input type="button" value="7" onclick="forms.answer.value += '7'">
+                                <input type="button" value="8" onclick="forms.answer.value += '8'">
+                                <input type="button" value="9" onclick="forms.answer.value += '9'">
+                                <input type="button" value="*" onclick="forms.answer.value += '*'">
+                            </div>
+                            <div class="buttons">
+                                <input type="button" value="4" onclick="forms.answer.value += '4'">
+                                <input type="button" value="5" onclick="forms.answer.value += '5'">
+                                <input type="button" value="6" onclick="forms.answer.value += '6'">
+                                <input type="button" value="-" onclick="forms.answer.value += '-'">
+                            </div>
+                            <div class="buttons">
+                                <input type="button" value="1" onclick="forms.answer.value += '1'">
+                                <input type="button" value="2" onclick="forms.answer.value += '2'">
+                                <input type="button" value="3" onclick="forms.answer.value += '3'">
+                                <input type="button" value="+" onclick="forms.answer.value += '+'">
+                            </div>
+                            <div class="buttons">
+                                <input type="button" value="0" onclick="forms.answer.value += '0'">
+                                <input type="button" value="00" onclick="forms.answer.value += '00'">
+                                <input type="button" value="." onclick="forms.answer.value += '.'">
+                                <input type="button" value="=" onclick="forms.answer.value = eval(forms.answer.value)">
+                            </div>
+                        </form>
+                        <script>
+
+                            const C = document.getElementById('C');
+                            const calculator = document.getElementById('calculator');
+                            let calculatorVisible = false;
+
+                            C.addEventListener('click', () => {
+                                if (calculatorVisible) {
+                                    calculator.style.display = 'none';
+                                    calculatorVisible = false;
+                                } else {
+                                    calculator.style.display = 'block';
+                                    calculatorVisible = true;
+
+
+                                }
+                            });
+                        </script>
+                    </div><br><br>
+                    <div id="calendar">
+                        <div class="calendar-container">
+                            <header class="calendar-header">
+                                <p class="calendar-current-date"></p>
+                                <div class="calendar-navigation">
+                                    <span id="calendar-prev" class="material-symbols-rounded">&lt;</span>
+                                    <span id="calendar-next" class="material-symbols-rounded">&gt;</span>
+                                </div>
+                            </header>
+
+                            <div class="calendar-body">
+                                <ul class="calendar-weekdays">
+                                    <li>Sun</li>
+                                    <li>Mon</li>
+                                    <li>Tue</li>
+                                    <li>Wed</li>
+                                    <li>Thu</li>
+                                    <li>Fri</li>
+                                    <li>Sat</li>
+                                </ul>
+                                <ul class="calendar-dates"></ul>
+                            </div>
+                        </div>
+                        <script>
+                            let date = new Date();
+                            let year = date.getFullYear();
+                            let month = date.getMonth();
+
+                            const day = document.querySelector(".calendar-dates");
+
+                            const currdate = document.querySelector(".calendar-current-date");
+
+                            const prenexIcons = document.querySelectorAll(".calendar-navigation span");
+
+                            // Array of month names
+                            const months = [
+                                "January",
+                                "February",
+                                "March",
+                                "April",
+                                "May",
+                                "June",
+                                "July",
+                                "August",
+                                "September",
+                                "October",
+                                "November",
+                                "December"
+                            ];
+
+                            // Function to generate the calendar
+                            const manipulate = () => {
+                                // Get the first day of the month
+                                let dayone = new Date(year, month, 1).getDay();
+
+                                // Get the last date of the month
+                                let lastdate = new Date(year, month + 1, 0).getDate();
+
+                                // Get the day of the last date of the month
+                                let dayend = new Date(year, month, lastdate).getDay();
+
+                                // Get the last date of the previous month
+                                let monthlastdate = new Date(year, month, 0).getDate();
+
+                                // Variable to store the generated calendar HTML
+                                let lit = "";
+
+                                // Loop to add the last dates of the previous month
+                                for (let i = dayone; i > 0; i--) {
+                                    // Arafa Khalaf
+                                    lit += `<li class="inactive">${monthlastdate - i + 1}</li>`;
+                                }
+
+                                // Loop to add the dates of the current month
+                                for (let i = 1; i <= lastdate; i++) {
+                                    // Check if the current date is today
+                                    let isToday = i === date.getDate() && month === date.getMonth() && year === date.getFullYear() ? "active" : "";
+                                    lit += `<li class="${isToday}">${i}</li>`;
+                                }
+
+                                // Loop to add the first dates of the next month
+                                for (let i = dayend; i < 6; i++) {
+                                    lit += `<li class="inactive">${i - dayend + 1}</li>`
+                                }
+
+                                // Update the text of the current date element
+                                // with the formatted current month and year
+                                currdate.innerText = `${months[month]} ${year}`;
+
+                                // update the HTML of the dates element
+                                // with the generated calendar
+                                day.innerHTML = lit;
+                            }
+                            manipulate();
+
+                            // Attach a click event listener to each icon
+                            prenexIcons.forEach(icon => {
+                                // When an icon is clicked
+                                icon.addEventListener("click", () => {
+                                    // Check if the icon is "calendar-prev" or "calendar-next"
+                                    month = icon.id === "calendar-prev" ? month - 1 : month + 1;
+
+                                    // Check if the month is out of range
+                                    if (month < 0) {
+                                        year--;
+                                        month = 11; // December
+                                    } else if (month > 11) {
+                                        year++;
+                                        month = 0; // January
+                                    }
+
+                                    // Call the manipulate function to update the calendar display
+                                    manipulate();
+                                });
+                            });
+                        </script>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+
+        <!-- Content -->
+        <div id="mydataContent" style="display: none;">
+            <br><br><br>
+            <div class="con_tainer">
+                <header id="head1">بيانات المنشأة</header>
+
+                <form onsubmit="return validateForm()" id="myformdata" class="form" name="myformdata" method="post"
+                    action="Save data.php">
+                    <div class="form first">
+                        <div class="details personal">
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label for="birthdate">تاريخ الميلاد</label>
+                                    <input type="date" id="birthdate" name="birthdate" required>
+                                </div>
+                                <div class="input-field">
+                                    <label for="id_number">رقم الهوية</label>
+                                    <input type="text" id="id_number" name="id_number" required>
+                                    <span id="id_number_error" style="color: red;"></span>
+                                </div>
+                                <div class="input-field">
+                                    <label for="name">الاسم</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="input-field">
+                                    <label for="establishment_name">اسم المنشأة</label>
+                                    <input type="text" id="establishment_name" name="establishment_name" required>
+                                </div>
+                                <div class="input-field">
+                                    <label for="license_number">رقم الرخصة</label>
+                                    <input type="text" id="license_number" name="license_number" required>
+                                </div>
+                                <div class="input-field">
+                                    <label for="registration_number">رقم السجل</label>
+                                    <input type="text" id="registration_number" name="registration_number" required>
+                                </div>
+                                <div class="input-field">
+                                    <label for="activity_type">نوع النشاط</label>
+                                    <input type="text" id="activity_type" name="activity_type" required>
+                                </div>
+                                <div class="input-field">
+                                    <label for="city">المدينة</label>
+                                    <select id="city" name="city" required>
+                                        <option>الرياض</option>
+                                        <option>جدة</option>
+                                        <option>الشرقية</option>
+                                        <option>المدينة</option>
+                                        <option>مكة</option>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                    <label for="registration_expiry">تاريخ انتهاء السجل</label>
+                                    <input type="date" id="registration_expiry" name="registration_expiry" required>
+                                </div>
+                            </div>
+                            <button class="nextBtn" id="submitButton" type="submit" name="save" value="save">
+                                <span class="btnText">حفظ </span>
+                                <i class="uil uil-navigator"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            
+            </div>
+            <br><br><br>
+        </div>
+
+        <!-- Content -->
+        <div id="billsContent" style="display: none;">
+
+            <form id="myForm1">
+
+                <table border="7">
+                    <tr>
+                        <th>ملاحظات</th>
+                        <th colspan="2">الحالة</th>
+                        <th>تاريخ الاستحقاق</th>
+                        <th>تاريخ الفاتورة</th>
+                        <th>رقم الفاتورة</th>
+                        <th>اسم الفاتورة</th>
+                    </tr>
+                    <tr>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td><input class="cli" type="checkbox" value="غير مدفوعة" style="--color: #f88"></td>
+                        <td><input class="cli" type="checkbox" value="مدفوعة" style="--color: #6c6"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td><input class="cli" type="checkbox" value="غير مدفوعة" style="--color: #f88"> </td>
+                        <td><input class="cli" type="checkbox" value="مدفوعة" style="--color: #6c6"> </td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td><input class="cli" type="checkbox" value="غير مدفوعة" style="--color: #f88"> </td>
+                        <td><input class="cli" type="checkbox" value="مدفوعة" style="--color: #6c6"> </td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td><input class="cli" type="checkbox" value="غير مدفوعة" style="--color: #f88"> </td>
+                        <td><input class="cli" type="checkbox" value="مدفوعة" style="--color: #6c6"> </td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input class="cli" type="checkbox" value="غير مدفوعة" style="--color: #f88">
+                        </td>
+                        <td class="ro"><input class="cli" type="checkbox" value="مدفوعة" style="--color: #6c6"> </td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input class="cli" type="checkbox" value="غير مدفوعة" style="--color: #f88">
+                        </td>
+                        <td class="ro"><input class="cli" type="checkbox" value="مدفوعة" style="--color: #6c6"> </td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input class="cli" type="checkbox" value="غير مدفوعة" style="--color: #f88">
+                        </td>
+                        <td class="ro"><input class="cli" type="checkbox" value="مدفوعة" style="--color: #6c6"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input class="cli" type="checkbox" value="غير مدفوعة" style="--color: #f88">
+                        </td>
+                        <td class="ro"><input class="cli" type="checkbox" value="مدفوعة" style="--color: #6c6"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                        <td class="ro"><input type="text" id="textInput"></td>
+                    </tr>
+                </table>
+                <br>
+                <button id="buttoon" type="submit">حفظ</button>
+
+            </form>
+
+
+        </div>
+
+
+
+
+        <!--  Content -->
+        <div id="WarehouseContent" style="display: none;">
+
+            <form id="myForm2">
+                <table border="8" id="ta">
+                    <tr class="r">
+                        <th class="t" colspan="2">الحاله</th>
+                        <th class="t">تاريخ الاستلام</th>
+                        <th class="t" id="h"> الكميه </th>
+                        <th class="t">تكلفه المنتج</th>
+                        <th class="t">رقم المنتج</th>
+                        <th class="t">اسم المنتج</th>
+                        <th class="t">موقع المستودع</th>
+                    </tr>
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"> <input type="text" id="textInput">
+                            <form id="myForm">
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+
+                    </tr>
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+                        <td class="d"> <input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"> </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"> </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"> </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                    </tr>
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"> </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                    </tr>
+
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+
+                        <td class="d"> <input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"></td>
+                        <td class="d"> <input type="text" id="textInput"></td>
+                    </tr>
+                    <tr class="r">
+                        <td class="d"><input class="i" type="checkbox" value="غير مدفوعه" style="--color: #f88"></td>
+                        <td class="d"><input class="i" type="checkbox" value="مدفوعه" style="--color: #6c6"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d">
+                            <div class="wrapper">
+                                <span class="minus">-</span>
+                                <span class="num">01</span>
+                                <span class="plus">+</span>
+                            </div>
+                        </td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                        <td class="d"><input type="text" id="textInput"></td>
+                    </tr>
+                </table>
+                <br>
+                <button id="buttonnn" type="submit">حفظ</button>
+            </form>
+
+
+        </div>
+
+        <!--  Content -->
+        <div id="EmployeesContent" style="display: none;">
+
+            <h2 class="h2">
+                <p class="p1"> الموظفين</p>
+                <div class="group">
+                    <div class="card">
+                        <div class="title">
+                            <div class="top">
+
+                                <h3> جاد </h3>
+                            </div>
+                            <img class="image" src="boy 2 .jpg" />
+                            <br><br>
+                            <p style="text-align: center; font-size: 11px;">
+                                إنتاجيته أكثر من المتوقع في جميع المناطق المحددة</p>
+                            <br><br>
+                            <ul>
+                                <li> المسمى الوظيفي : مسوق ألكتروني </li>
+                                <br><br>
+                                <li> المعرف : 1125888200</li>
+                                <br><br>
+                                <li>fa-jdaa@gmail.com : الايميل</li>
+                                <br><br>
+                                <li> العمر : 28 عام</li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="title">
+                            <div class="top">
+
+                                <h3> غيث </h3>
+                            </div>
+                            <img class="image" src="boy 3 .jpg" />
+                            <br><br>
+                            <p style="text-align: center; font-size: 11px;">
+                                يعتبر إنتاجية الفريق أولوية قصوى ويطبق أساليب جديدة </p>
+                            <br><br>
+                            <ul>
+                                <li> المسمى الوظيفي : مراقب الجودة </li>
+                                <br><br>
+                                <li> المعرف : 1134985565</li>
+                                <br><br>
+                                <li>no-kaiu@gmail.com : الايميل</li>
+                                <br><br>
+                                <li> العمر : 26 عام</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="title">
+                            <div class="top">
+
+                                <h3> ادم </h3>
+                            </div>
+                            <img class="image" src="boy1.jpg" />
+                            <br><br>
+                            <p style="text-align: center; font-size: 11px;">
+                                إنه يفهم تمامًا الأرقام الكامنة وراء الإنتاجية ويعمل بجد </p>
+                            <br><br>
+                            <ul>
+                                <li> المسمى الوظيفي : المحاسب </li>
+                                <br><br>
+                                <li> المعرف : 1120969022</li>
+                                <br><br>
+                                <li>ad-alui@gmail.com : الايميل</li>
+                                <br><br>
+                                <li> العمر : 31 عام</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="title">
+                            <div class="top">
+
+                                <h3> كلارا </h3>
+                            </div>
+                            <img class="image" src="girl 1 .jpg" />
+                            <br><br>
+                            <p style="text-align: center; font-size: 11px;">
+                                ممتازة في تقدير الوقت اللازم ووضع الخطة المناسبة </p>
+                            <br><br>
+                            <ul>
+                                <li> المسمى الوظيفي : محللة بيانات </li>
+                                <br><br>
+                                <li> المعرف : 1198972025</li>
+                                <br><br>
+                                <li> em-aaid@gmail.com : الايميل</li>
+                                <br><br>
+                                <li> العمر : 27 عام</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="title">
+                            <div class="top">
+
+                                <h3> سارا </h3>
+                            </div>
+                            <img class="image" src="girl 2 .jpg" />
+                            <br><br>
+                            <p style="text-align: center; font-size: 11px;">
+                                تعمل مباشرة مع الموظفين الآخرين من أجل تعزيز إنتاجيتهم </p>
+                            <br><br>
+                            <ul>
+                                <li> المسمى الوظيفي : مديرة الانتاج </li>
+                                <br><br>
+                                <li> المعرف : 1134985565</li>
+                                <br><br>
+                                <li>sa-kald@gmail.com : الايميل</li>
+                                <br><br>
+                                <li> العمر : 34 عام</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="title">
+                            <div class="top">
+
+                                <h3> اوليفيا </h3>
+                            </div>
+                            <img class="image" src="girl 3 .jpg" />
+                            <br><br>
+                            <p style="text-align: center; font-size: 11px;">
+                                إنها على استعداد لبذل جهد خاص للتحسين </p>
+                            <br><br>
+                            <ul>
+                                <li> المسمى الوظيفي : مهندسة البرمجيات </li>
+                                <br><br>
+                                <li> المعرف : 1134346875</li>
+                                <br><br>
+                                <li>ol-aiup@gmail.com : الايميل</li>
+                                <br><br>
+                                <li> العمر : 29 عام</li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+            </h2>
+        </div>
+
+        <!--  Content -->
+        <div id="YourguideContent" style="display: none;">
+
+
+            <h2 id="Toptitle">الربط بمنصات حكومية </h2>
+            <p id="p"> <b>للأنتقال المباشر لاكمال العمليات و الاجراءات الخاصة بك </b></p>
+
+            <!-- Features Section -->
+            <section class="features" id="features">
+                <div class="qualities">
+                    <div class="quality">
+                        <a href="https://www.iam.gov.sa/authservice/userauthservice?lang=ar">
+                            <img src="th.jpeg" alt="Logo 1">
+                        </a>
+                        <p class="text">نفاذ</p>
+                    </div>
+                    <div class="quality">
+                        <a href="https://www.absher.sa/portal/landing.html">
+                            <img src="unnamed.png" alt="Logo 2">
+                        </a>
+                        <p class="text">ابشر </p>
+                    </div>
+                    <div class="quality">
+                        <a href="https://new.najiz.sa/applications/landing">
+                            <img src="unnamed (1).png" alt="Logo 3">
+                        </a>
+                        <p class="text">ناجز </p>
+                    </div>
+                </div>
+            </section>
+            <br>
+
+            <h2 id="Toptitle"> الأسئلة الشائعة</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="question" onclick="toggleAnswer(1)"> ليش جسر ؟</div>
+                    <div class="answer" id="answer1"> جسر يجمع لك الكفاءة و التميز و يواكب التطورات المبتكرة لزيادة جودة
+                        انتاجك</div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggleAnswer(2)"> كيف يقدر يساعدني ؟</div>
+                    <div class="answer" id="answer2"> يقدم لك جسر تسهيل و تبسيط الخدمات الي تقدر فيها تدير منشأتك تحت ظل
+                        سقف واحد من خلال إدارة مهامك </div>
+                </div>
+                <div class="faq-item">
+                    <div class="question" onclick="toggleAnswer(3)"> هل يمكن لجسر التعاون والشراكه مع شركات اخرى ؟</div>
+                    <div class="answer" id="answer3">نحن منفتحون على استكشاف أوجه التعاون والشراكات المحتملة مع الشركات
+                        الأخرى التي تتوافق مع قيمنا وأهدافنا</div>
+                </div>
+
+            </div>
+
+            <script>
+                function toggleAnswer(id) {
+                    var answer = document.getElementById("answer" + id);
+                    answer.classList.toggle("active");
+                }
+            </script>
+
+
+
+        </div>
+
+       
+
+
+        <script>
+            window.onload = function () {
+                // Automatically show 'mytasks' section when the page loads
+                showContent('mytasks');
+
+
+                var savedData1 = JSON.parse(localStorage.getItem('userInputs1'));
+                var savedData2 = JSON.parse(localStorage.getItem('userInputs2'));
+
+                if (savedData1) {
+                    var textInputs1 = document.querySelectorAll('#myForm1 input[type="text"], #myForm1 textarea');
+                    var checkboxesPaid1 = document.querySelectorAll('#myForm1 input[value="مدفوعة"]');
+                    var checkboxesUnpaid1 = document.querySelectorAll('#myForm1 input[value="غير مدفوعة"]');
+                    var counters1 = document.querySelectorAll('#myForm1 .num');
+
+                    checkboxesPaid1.forEach(function (checkbox, index) {
+                        checkbox.checked = savedData1.checkboxesPaid[index];
+                    });
+
+                    checkboxesUnpaid1.forEach(function (checkbox, index) {
+                        checkbox.checked = savedData1.checkboxesUnpaid[index];
+                    });
+
+                    textInputs1.forEach(function (input, index) {
+                        input.value = savedData1.textInputs[index];
+                    });
+
+                    counters1.forEach(function (counter, index) {
+                        counter.innerText = savedData1.counters[index];
+                    });
+                }
+
+                if (savedData2) {
+                    var checkboxesPaid2 = document.querySelectorAll('#myForm2 .i[value="مدفوعه"]');
+                    var checkboxesUnpaid2 = document.querySelectorAll('#myForm2 .i[value="غير مدفوعه"]');
+                    var textInputs2 = document.querySelectorAll('#myForm2 input[type="text"]');
+                    var counters2 = document.querySelectorAll('#myForm2 .num');
+
+                    checkboxesPaid2.forEach(function (checkbox, index) {
+                        checkbox.checked = savedData2.checkboxesPaid[index];
+                    });
+
+                    checkboxesUnpaid2.forEach(function (checkbox, index) {
+                        checkbox.checked = savedData2.checkboxesUnpaid[index];
+                    });
+
+                    textInputs2.forEach(function (input, index) {
+                        input.value = savedData2.textInputs[index];
+                    });
+
+                    counters2.forEach(function (counter, index) {
+                        counter.innerText = savedData2.counters[index];
+                    });
+                }
+            };
+
+            document.getElementById('buttonnn').addEventListener('click', function () {
+                var checkboxesPaid2 = document.querySelectorAll('#myForm2 .i[value="مدفوعه"]');
+                var checkboxesUnpaid2 = document.querySelectorAll('#myForm2 .i[value="غير مدفوعه"]');
+                var textInputs2 = document.querySelectorAll('#myForm2 input[type="text"]');
+                var counters2 = document.querySelectorAll('#myForm2 .num');
+
+                var userInputs2 = {
+                    checkboxesPaid: [],
+                    checkboxesUnpaid: [],
+                    textInputs: [],
+                    counters: []
+                };
+
+                checkboxesPaid2.forEach(function (checkbox) {
+                    userInputs2.checkboxesPaid.push(checkbox.checked);
+                });
+
+                checkboxesUnpaid2.forEach(function (checkbox) {
+                    userInputs2.checkboxesUnpaid.push(checkbox.checked);
+                });
+
+                textInputs2.forEach(function (input) {
+                    userInputs2.textInputs.push(input.value);
+                });
+
+                counters2.forEach(function (counter) {
+                    userInputs2.counters.push(counter.innerText);
+                });
+
+                localStorage.setItem('userInputs2', JSON.stringify(userInputs2));
+
+                // Display a confirmation message to the user
+                alert('تم حفظ التعديلات ');
+            });
+
+            document.getElementById('buttoon').addEventListener('click', function () {
+                var checkboxesPaid1 = document.querySelectorAll('#myForm1 input[value="مدفوعة"]');
+                var checkboxesUnpaid1 = document.querySelectorAll('#myForm1 input[value="غير مدفوعة"]');
+                var textInputs1 = document.querySelectorAll('#myForm1 input[type="text"], #myForm1 textarea');
+                var counters1 = document.querySelectorAll('#myForm1 .num');
+
+                var userInputs1 = {
+                    checkboxesPaid: [],
+                    checkboxesUnpaid: [],
+                    textInputs: [],
+                    counters: []
+                };
+
+                checkboxesPaid1.forEach(function (checkbox) {
+                    userInputs1.checkboxesPaid.push(checkbox.checked);
+                });
+
+                checkboxesUnpaid1.forEach(function (checkbox) {
+                    userInputs1.checkboxesUnpaid.push(checkbox.checked);
+                });
+
+                textInputs1.forEach(function (input) {
+                    userInputs1.textInputs.push(input.value);
+                });
+
+                counters1.forEach(function (counter) {
+                    userInputs1.counters.push(counter.innerText);
+                });
+
+                localStorage.setItem('userInputs1', JSON.stringify(userInputs1));
+
+                // Display a confirmation message to the user
+                alert('تم حفظ التعديلات ');
+            });
+
+
+        </script>
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const wrappers = document.querySelectorAll('.wrapper');
+
+                wrappers.forEach((wrapper) => {
+                    const plus = wrapper.querySelector(".plus");
+                    const minus = wrapper.querySelector(".minus");
+                    const num = wrapper.querySelector(".num");
+
+                    let quantity = 1;
+
+                    plus.addEventListener("click", () => {
+                        quantity++;
+                        updateQuantity(num, quantity);
+                    });
+
+                    minus.addEventListener("click", () => {
+                        if (quantity > 1) {
+                            quantity--;
+                            updateQuantity(num, quantity);
+                        }
+                    });
+                });
+            });
+
+            function updateQuantity(num, quantity) {
+                num.innerText = String(quantity).padStart(2, '0'); // Pads single digits with leading zero
+                console.log(quantity);
+            }
+
+
+        </script>
+
+
+
+        <!-- JavaScript to handle content switching -->
+        <script>
+            function showContent(page) {
+                // Hide all content divs
+                var allContentDivs = document.querySelectorAll('.content > div');
+                allContentDivs.forEach(function (div) {
+                    div.style.display = 'none';
+                });
+
+                // Show the selected content div
+                var selectedContentDiv = document.getElementById(page + 'Content');
+                if (selectedContentDiv) {
+                    selectedContentDiv.style.display = 'block';
+                }
+            }
+
+
+        </script>
+
+
+    </div>
+
+</body>
+
+</html>

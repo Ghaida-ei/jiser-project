@@ -1,0 +1,118 @@
+*{
+    font-family: 'Tajawal';
+}
+
+table {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translate(-50%, -50%);
+   
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius:12px 12px 0 0;
+    overflow: hidden;
+    background-color: #fafafa;
+    box-shadow: 0 2px 12px rgba(32, 32, 32, .3);
+    text-align: center;
+    direction: ltr;
+    left: 42%;
+
+    
+}
+
+th,
+td {
+    padding:8px 10px;
+}
+
+th {
+    background: #320877;
+    color: floralwhite;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #2d11623d;
+}
+#buttoon {
+    background-color: #2D1162;  /* Background color */
+    color: white;               /* Text color */
+    padding: 10px 20px;         /* Padding around text */
+    border: none;               /* Remove border */
+    border-radius: 4px;         /* Rounded corners */
+    cursor: pointer;            /* Cursor on hover */
+    font-size: 16px;            /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition */
+   margin-top: 640px;
+   margin-right: 120px;
+   width:11%;
+}
+
+#buttoon:hover{
+    background-color: #4211a4;
+}
+
+
+
+ input {
+    display: inline-block;
+    border: 1px solid #0004;
+    border-radius: 100em;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5em 1em 0.5em 2em;
+    overflow: hidden;
+    margin: 0 5px;
+    appearance: none;
+}
+
+input::before {
+    content: "";
+    width: 0.75em;
+    display: inline-block;
+    aspect-ratio: 1;
+    background:
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0);
+    background-color: var(--color);
+    background-position: 50% 50%, 50% 50%, 50% 50%;
+    background-size: 0 0, 0 0;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 1.125em;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: width 0.25s, background-size 0.5s;
+}
+input::after {
+    position: relative;
+    content: attr(value);
+    white-space: pre;
+    line-height: 1;
+}
+
+input:checked::before {
+    width: 200%;
+    background-position: 50% 50%, 50% 50%, 50% 50%;
+    background-size: 1em 0.125em, 0.125em 1em;
+}
+
+.ro {
+    padding: 15px 13px;
+    direction: rtl;
+    
+ }
+
+ .cli{
+    display: inline-block;
+      border: 1px solid #0004;
+      border-radius: 100em;
+      font-size: 1rem;
+      position: relative;
+      padding: 0.5em 1em 0.5em 2em;
+      overflow: hidden;
+      margin: 0 5px;
+      appearance: none;
+ }
